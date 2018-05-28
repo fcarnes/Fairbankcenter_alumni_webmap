@@ -1,0 +1,138 @@
+<!DOCTYPE html> 
+<html>  
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Fairbank Center Alumni Mapping</title>  
+    <!--<link rel="shortcut icon" href="//esri.github.io/quickstart-map-js/images/favicon.ico">-->
+    <!-- ArcGIS API for JavaScript CSS-->
+    <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
+    <style>
+        html, body, 
+
+        #mapDiv {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          background-color: rgb(34, 35, 39);
+        }
+
+        #search {
+            display: block;
+            position: absolute;
+            z-index: 2;
+            top: 53px;
+            /*left: 270px;*/
+            left:62px;
+        }
+
+        #homeButton {
+            position: absolute;
+            top: 95px;
+            left: 16px;
+            z-index: 50;
+        }
+        
+        #aff_type{
+            display: block;
+            position: absolute;
+            z-index: 2;
+            top: 22px;
+            left: 62px;
+            width: 202px;
+            height: 28px;
+            line-height: 16px;
+            font-size: 12px;
+            padding-top:6px;
+            padding-bottom:6px;
+            padding-left:6px;
+            border-radius:5px;
+            vertical-align: middle;
+            border:0px;
+        }
+        
+        label select{
+            display:inline-block;
+            vertical-align: middle;
+        }
+        
+        .HomeButton .home {
+            width: 27px;
+            height: 27px;            
+        }
+
+        /* Geocoder */
+        .simpleGeocoder .esriGeocoderContainer {
+            width: 200px;
+        }
+        
+
+        /* Zoom buttons */        
+        .esriSimpleSliderTL {
+            left: 16px;            
+        }
+
+        /* Popup */
+        .esriPopup.light .contentPane {
+            padding-top: 0;
+        }
+
+        .esriPopup.light .contentPane > p {
+            margin: 5px 0;
+        }
+
+        #clusterAttributes {
+            display: none;
+            position: absolute;
+            z-index: 2;
+            bottom: 15px;
+            left: 15px;
+            width:300px;
+            background-color: rgb(34, 35, 39);
+            opacity: 0.75;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;            
+            border: 1px solid #fff;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: "Arial", Verdena, Sans-serif;
+            font-size: 14px;
+        }
+        .sepline{
+            border-bottom: 1px dotted #fff;
+            bottom: -10px;
+            width: auto;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        window.dojoConfig = {
+            async: true,
+            packages: [
+            {
+                name: 'app',
+                location: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/src'
+            }
+        ]};
+    </script>
+
+    <!-- ArcGIS API for JavaScript library references -->
+    <script src="https://js.arcgis.com/3.17"></script>
+    <script src="src/alumni.js"></script>
+    
+</head>
+<body>
+    <div id="mapDiv"></div>
+    <div id="search"></div>
+    <div id="homeButton"></div>
+    <div id="affiliation">
+        <!-- <label id="filter"><font color="white" >Choose an affiliation type</font></label> -->
+        <select id="aff_type" name="aff">
+            <option value=" "></option>
+        </select>
+    </div>
+    <div id="clusterAttributes"></div>
+</body>
+</html>
